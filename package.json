@@ -1,38 +1,24 @@
 {
-  "name": "watch2gether-duplicate-back-hn",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "watch2gether-backend",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/callmehetch/watch2gether-duplicate-back-hn.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/callmehetch/watch2gether-duplicate-back-hn/issues"
-  },
-  "homepage": "https://github.com/callmehetch/watch2gether-duplicate-back-hn#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
+    "start": "nodemon src/index.js",
+    "build": "babel src -d lib"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.2",
-    "concurrently": "^7.0.0",
-    "express": "^4.17.3",
-    "is-empty": "^1.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.8",
-    "passport": "^0.5.2",
-    "passport-jwt": "^4.0.0",
-    "validator": "^13.7.0"
+    "mongoose": "^5.11.12",
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "16.14.0"
   }
 }
