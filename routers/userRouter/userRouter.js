@@ -62,9 +62,9 @@ router.post("/", async (req, res) => {
     // send the token in a HTTP-only cookie
     res
       .cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
+        // httpOnly: true,
+        // secure: true,
+        // sameSite: "none",
       })
       .send();
   } catch (err) {
@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(process.env.JWT_SECRET);
+   
     // validate
     if (!email)
       return res
@@ -101,6 +101,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ errorMessage: "Wrong email or password." });
 
     // sign the token
+    console.log(process.env.JWT_SECRET);
     const token = jwt.sign(
       {
         user: existingUser._id,
@@ -111,8 +112,8 @@ router.post("/login", async (req, res) => {
     // send the token in a HTTP-only cookie
     res
       .cookie("token", token, {
-        httpOnly: false,
-        secure: false,
+        //httpOnly: false,
+        //secure: false,
       })
       .send();
   } catch (err) {
@@ -124,9 +125,9 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
   res
     .cookie("token", "", {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
+      // httpOnly: true,
+      // secure: true,
+      // sameSite: "none",
     })
     .send();
 });
