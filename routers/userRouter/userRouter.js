@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(.env.JWT_SECRET);
+    console.log(process.env.JWT_SECRET);
     // validate
     if (!email)
       return res
