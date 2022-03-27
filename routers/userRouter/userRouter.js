@@ -134,8 +134,11 @@ router.get("/logout", (req, res) => {
 router.get("/loggedIn", (req, res) => {
   try {
     const token = req.cookies.token;
-    if (!token) return res.json(false);
-
+    if (!token){
+      console.log("userRouter - loggedIn-false");
+      return res.json(false);
+    }
+console.log("userRouter - loggedIn-true");
     jwt.verify(token, process.env.JWT_SECRET);
 
     res.send(true);
